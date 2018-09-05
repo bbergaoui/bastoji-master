@@ -123,11 +123,12 @@ static CBlock FindDevNetGenesisBlock(const Consensus::Params& params, const CBlo
 class CMainParams : public CChainParams {
 public:
     CMainParams() {
+
     	strNetworkID = "main";
 
-    	    	  		bool fNegative;
-    	    	  		bool fOverflow;
-    	    	  		uint32_t i=0;
+    	  //bool fNegative;
+    	    	  		//bool fOverflow;
+    	    	  	//	uint32_t i=0;
 
     /*	while (true) {
     	    	    					genesis = CreateGenesisBlock(1532004360,++i, 0x1e0ffff0, 1, 20 * COIN);
@@ -270,7 +271,42 @@ static CMainParams mainParams;
 class CTestNetParams : public CChainParams {
 public:
     CTestNetParams() {
+
         strNetworkID = "test";
+
+
+/*
+
+    	    	    		bool fNegative;
+    	    	    	  		bool fOverflow;
+    	    	    	  	uint32_t i=0;
+
+    	    	while (true) {
+    	    	    	    					genesis = CreateGenesisBlock(1536156416,i, 0x1e0ffff0, 1, 30 * COIN);
+    	    	    	    				arith_uint256 bnTarget;
+
+    	    	    	    				bnTarget.SetCompact(0x1e0ffff0, &fNegative, &fOverflow);
+    	    	    	    			if (UintToArith256(genesis.GetHash()) > bnTarget) {
+    	    	    	    				//	std::cout << " nonce not correct  \n";
+    	    	    	    				//	std::cout << i << " ";
+    	    	    	    				i++;
+    	    	    	    				}
+    	    	    	    				else {
+    	    	    	    					std::cout << " nonce found  " << i << "\n";
+    	    	    	    					std::cout << " genesis found  " <<  genesis.GetHash().ToString() << "\n";
+
+    	    	    	    							exit(-1);
+    	    	    	    				}
+    	    	    	    				}
+
+*/
+	    		genesis = CreateGenesisBlock(1536156416,481345, 0x1e0ffff0, 1, 30 * COIN);
+
+
+
+
+
+        //strNetworkID = "test";
         consensus.nSubsidyHalvingInterval = 210240;
         consensus.nMasternodePaymentsStartBlock = 4010; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
         consensus.nMasternodePaymentsIncreaseBlock = 4030;
@@ -281,19 +317,19 @@ public:
         consensus.nBudgetPaymentsCycleBlocks = 50;
         consensus.nBudgetPaymentsWindowBlocks = 10;
         consensus.nSuperblockStartBlock = 4200; // NOTE: Should satisfy nSuperblockStartBlock > nBudgetPeymentsStartBlock
-        consensus.nSuperblockStartHash = uint256S("00000000cffabc0f646867fba0550afd6e30e0f4b0fc54e34d3e101a1552df5d");
+        consensus.nSuperblockStartHash = uint256();
         consensus.nSuperblockCycle = 24; // Superblocks can be issued hourly on testnet
         consensus.nGovernanceMinQuorum = 1;
         consensus.nGovernanceFilterElements = 500;
         consensus.nMasternodeMinimumConfirmations = 1;
         consensus.BIP34Height = 76;
-        consensus.BIP34Hash = uint256S("0x000008ebb1db2598e897d17275285767717c6acfeac4c73def49fbea1ddcbcb6");
+        consensus.BIP34Hash = uint256();
         consensus.BIP65Height = 2431; // 0000039cf01242c7f921dcb4806a5994bc003b48c1973ae0c89b67809c2bb2ab
         consensus.BIP66Height = 2075; // 0000002acdd29a14583540cb72e1c5cc83783560e38fa7081495d474fe1671f7
         consensus.DIP0001Height = 5500;
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Bastoji: 1 day
-        consensus.nPowTargetSpacing = 2* 60; // Bastoji: 2.5 minutes
+        consensus.nPowTargetSpacing = 60 * 60; // Bastoji: 2.5 minutes
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
         consensus.nPowKGWHeight = 4001; // nPowKGWHeight >= nPowDGWHeight means "no KGW"
@@ -329,33 +365,37 @@ public:
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x0000000004a7878409189b7a8f75b3815d9b8c45ee8f79955a6c727d83bddb04"); // 143200
 
-        pchMessageStart[0] = 0xce;
-        pchMessageStart[1] = 0xe2;
-        pchMessageStart[2] = 0xca;
-        pchMessageStart[3] = 0xff;
+        pchMessageStart[0] = 0xCA;
+        pchMessageStart[1] = 0xE4;
+        pchMessageStart[2] = 0xA5;
+        pchMessageStart[3] = 0xF1;
         vAlertPubKey = ParseHex("04517d8a699cb43d3938d7b24faaff7cda448ca4ea267723ba614784de661949bf632d6304316b244646dea079735b9a6fc4af804efb4752075b9fe2245e14e412");
-        nDefaultPort = 19999;
+        nDefaultPort = 7288;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1390666206UL, 3861367235UL, 0x1e0ffff0, 1, 50 * COIN);
+        //genesis = CreateGenesisBlock(1390666206UL, 3861367235UL, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
 
-        //assert(consensus.hashGenesisBlock == uint256S("0x00000bafbc94add76cb75e2ec92894837288a481e5c005f6563d91623bf8bc2c"));
+        assert(consensus.hashGenesisBlock == uint256S("00000ce6da96059fa9440b94a308cc73bae36985cfd1a2e4f0809e025b7c3ba0"));
         //assert(genesis.hashMerkleRoot == uint256S("0xe0028eb9648db56b1ac77cf090b99048a8007e2bb64b68f092c03c7f56a662c7"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        // nodes with support for servicebits filtering should be at the top
-        vSeeds.push_back(CDNSSeedData("bastojidot.io",  "testnet-seed.bastojidot.io"));
-        vSeeds.push_back(CDNSSeedData("masternode.io", "test.dnsseed.masternode.io"));
 
-        // Testnet Bastoji addresses start with 'y'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
-        // Testnet Bastoji script addresses start with '8' or '9'
+        // nodes with support for servicebits filtering should be at the top
+        vSeeds.push_back(CDNSSeedData("dns1.testnet.bastoji.com",  "dns1.testnet.bastoji.com"));
+
+        vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
+
+
+
+        // Testnet Bastoji addresses start with 'J'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,106);
+        // Testnet Bastoji script addresses start with 'J' or 'j'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19);
-        // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
+        // Testnet private keys start with 'J' or 'J' (Bitcoin defaults)
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,115);
         // Testnet Bastoji BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
         // Testnet Bastoji BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
@@ -374,22 +414,18 @@ public:
         nPoolMaxTransactions = 3;
         nFulfilledRequestExpireTime = 5*60; // fulfilled requests expire in 5 minutes
 
-        strSporkAddress = "yjPtiKh2uwk3bDutTEA2q9mCtXyiZRWn55";
+        strSporkAddress = "jmMWigMfFVgfSzGKSeLhysB8kiA4fP5CkD";
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (    261, uint256S("0x00000c26026d0815a7e2ce4fa270775f61403c040647ff2c3091f99e894a4618"))
-            (   1999, uint256S("0x00000052e538d27fa53693efe6fb6892a0c1d26c0235f599171c48a3cce553b1"))
-            (   2999, uint256S("0x0000024bc3f4f4cb30d29827c13d921ad77d2c6072e586c7f60d83c2722cdcc5"))
-            ( 100000, uint256S("0x0000000003aa53e24b6e60ef97642e4193611f2bcb75ea1fa8105f0b5ffd5242"))
-            ( 143200, uint256S("0x0000000004a7878409189b7a8f75b3815d9b8c45ee8f79955a6c727d83bddb04"))
-        };
+            ( 0, uint256S("0x000008ca1832a4baf228eb1553c03d3a2c8e02399550dd6ea8d65cec3ef23d2e"))
+
+            };
 
         chainTxData = ChainTxData{
-            1529294335, // * UNIX timestamp of last known number of transactions
-            5810120,    // * total number of transactions between genesis and that timestamp
-                        //   (the tx=... number in the SetBestChain debug.log lines)
-            0.01        // * estimated number of transactions per second after that timestamp
+        	  0,
+        	  0,
+        	  0      // * estimated number of transactions per second after that timestamp
         };
 
     }
@@ -483,7 +519,7 @@ public:
         //vSeeds.push_back(CDNSSeedData("bastojievo.org",  "devnet-seed.bastojievo.org"));
 
         // Testnet Bastoji addresses start with 'y'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,106);
         // Testnet Bastoji script addresses start with '8' or '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19);
         // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
