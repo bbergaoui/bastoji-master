@@ -3,7 +3,7 @@ Bastoji Core staging tree 0.12.3
 
 `master:` [![Build Status](https://travis-ci.org/bastojipay/bastoji.svg?branch=master)](https://travis-ci.org/bastojipay/bastoji) `develop:` [![Build Status](https://travis-ci.org/bastojipay/bastoji.svg?branch=develop)](https://travis-ci.org/bastojipay/bastoji/branches)
 
-https://www.bastoji.com
+http://www.sqoin.us
 
 
 What is Bastoji?
@@ -16,7 +16,7 @@ are carried out collectively by the network. Bastoji Core is the name of the ope
 source software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the Bastoji Core software, see https://www.bastoji.com/get-bastoji/.
+the Bastoji Core software, see http://www.sqoin.us/get-bastoji/.
 
 
 License
@@ -74,4 +74,4 @@ Translations are periodically pulled from Transifex and merged into the git repo
 **Important**: We do not accept translation changes as GitHub pull requests because the next
 pull from Transifex would automatically overwrite them again.
 
-Translators should also follow the [forum](https://www.bastoji.com/forum/topic/bastoji-worldwide-collaboration.88/).
+Translators should also follow the [forum](http://www.sqoin.us/forum/topic/bastoji-worldwide-collaboration.88/).

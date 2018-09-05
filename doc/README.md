@@ -1,7 +1,7 @@
 Bastoji Core 0.12.1
 =====================
 
-This is the official reference wallet for Bastoji digital currency and comprises the backbone of the Bastoji peer-to-peer network. You can [download Bastoji Core](https://www.bastoji.com/downloads/) or [build it yourself](#building) using the guides below.
+This is the official reference wallet for Bastoji digital currency and comprises the backbone of the Bastoji peer-to-peer network. You can [download Bastoji Core](http://www.sqoin.us/downloads/) or [build it yourself](#building) using the guides below.
 
 Running
 ---------------------

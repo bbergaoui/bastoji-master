@@ -3,7 +3,7 @@ Bastoji Core version 0.12.2.3
 
 Release is now available from:
 
-  <https://www.bastoji.com/downloads/#wallets>
+  <http://www.sqoin.us/downloads/#wallets>
 
 This is a new minor version release, bringing various bugfixes and other
 improvements.

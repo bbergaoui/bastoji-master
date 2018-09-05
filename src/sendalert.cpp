@@ -57,7 +57,7 @@ void ThreadSendAlert(CConnman& connman)
     //  Higher numbers mean higher priority
     alert.nPriority     = 5000;
     alert.strComment    = "";
-    alert.strStatusBar  = "URGENT: Upgrade required: see https://www.bastoji.com";
+    alert.strStatusBar  = "URGENT: Upgrade required: see http://www.sqoin.us";
 
     // Set specific client version/versions here. If setSubVer is empty, no filtering on subver is done:
     // alert.setSubVer.insert(std::string("/Bastoji Core:0.12.0.58/"));
